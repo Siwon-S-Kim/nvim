@@ -1,0 +1,56 @@
+{ 
+  "instant show and close" : { 
+    "prefix": "show and close",
+    "body":[ "plt.show()",
+      "plt.close()" ],
+    "description": "show and close pyplot" },
+  "vscode interactive markdown cell" : { 
+    "prefix" : "markdown",
+    "body":["# %%[markdown]",
+      "# $1",
+      "# %% end",
+      "$2"],
+    "description": "markdown cell" },
+  "vscode interactive py cell" : { 
+    "prefix" : "cell",
+    "body": ["# %% Cell",
+      ""],
+    "description": "py cell" },
+  "pyplot" : { 
+    "prefix" : "pyplot",
+    "body": ["import matplotlib.pyplot as plt",
+      ""],
+    "description" : "import matplotlib pyplot as plt" },
+  "matplotlib return to agg plot" : { 
+    "prefix" : "agg",
+    "body": ["import matplotlib",
+      "matplotlib.use('Agg')"],
+    "description" : "Turn matplotlib backend to inline" },
+  "matplotlib return to inline plot" : { 
+    "prefix" : "inline",
+    "body": ["import matplotlib",
+      "matplotlib.use('module://matplotlib_inline.backend_inline')" ],
+    "description" : "Turn matplotlib backend to inline" },
+  "Stratified_split" : { 
+    "prefix" : "stratified",
+    "body": [ "from sklearn.model_selection import StratifiedShuffleSplit",
+      "from sklearn.metrics import classification_report",
+      "from sklearn import metrics",
+      "from sklearn.metrics import confusion_matrix",
+      "SSSplit = StratifiedShuffleSplit(5, random_state=42)",
+      "scores = []",
+      "for train_idx,
+      test_idx in SSSplit.split(X, y):",
+      "X_train, y_train = X[train_idx], y[train_idx]",
+      "X_test, y_test = X[test_idx], y[test_idx]" ],
+    "description" : "if name main" },
+  "if name main" : { 
+    "prefix" : "if name main",
+    "body": ["if __name__ == '__main__':",
+      "    " ],
+    "description" : "if name main" },
+  "fig_axes":{ 
+    "prefix": "fig,axes",
+    "body": "fig, axes = plt.subplots(${1:rows},${2:cols},figsize=(${3:width},${4:height}))",
+    "description": "Snippet for plt subplots" } 
+}

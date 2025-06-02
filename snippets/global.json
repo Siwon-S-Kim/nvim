@@ -1,0 +1,29 @@
+{
+  "bracket":{
+    "prefix" : "bracket",
+    "body": "[$1]$2",
+    "description": "bracket"
+  },
+  "braces": {
+    "prefix": "braces",
+    "body": "{$1}$2",
+    "description": "braces"
+  }
+  ,
+  "paranthese": {
+    "prefix": "parenthese",
+    "body": "($1)$2",
+    "description": "parenthese"
+  }
+  ,
+  "quote": {
+    "prefix": "quote",
+    "body":  "'$1'$2",
+    "description": "single quote"
+  },
+  "dobule_quote": {
+    "prefix": "dquote",
+    "body": "\"$1\"$2",
+    "description": "quote"
+  }
+}
