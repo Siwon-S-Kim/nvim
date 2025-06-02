@@ -1,3 +1,6 @@
+# My personal neovim config
+
+This config is started from [neovim kickstart](https://github.com/nvim-lua/kickstart.nvim)
 # kickstart.nvim
 
 ## Introduction
