@@ -1,0 +1,27 @@
+git,make,unzip,gcc was already installed.
+
+
+`sudo apt install ripgrep`
+
+win32yank for wsl.
+
+
+using wezterm, best for cross platform.
+
+# apt install fd-find
+
+need npm for mason to install pyright
+
+need nvm, node version manager
+https://github.com/nvm-sh/nvm
+`
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+`
+if we don't get nvm by typing nvm:
+`export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm`
+
+`nvm install node # "node" is an alias for the latest version`
+
+Then mason works, downloading pyright
+

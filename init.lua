@@ -93,6 +93,10 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = false
 
+-- For nvim-tree, disable default file explorer of vim
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
@@ -973,8 +977,11 @@ require('lazy').setup({
       'nvim-tree/nvim-web-devicons',
     },
     config = function()
-      require('nvim-tree').setup {}
+      require('nvim-tree').setup { view = { side = 'right' } }
     end,
+  },
+  {
+    'AndrewRadev/linediff.vim',
   },
 
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
@@ -1026,5 +1033,7 @@ require('lazy').setup({
 })
 require('luasnip.loaders.from_vscode').load { paths = { '~/.config/nvim/snippets/' } }
 require 'keymap_snippets'
+require 'keymap_general'
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
