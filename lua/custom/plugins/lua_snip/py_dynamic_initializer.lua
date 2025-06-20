@@ -34,14 +34,26 @@ local function to_init_assign(args)
     local cnt = 1
     for e in string.gmatch(a, ' ?([^,]*) ?') do
       if #e > 0 then
-        table.insert(tab, t { '', '\tself.' })
-        -- use a restore-node to be able to keep the possibly changed attribute name
-        -- (otherwise this function would always restore the default, even if the user
-        -- changed the name)
-        table.insert(tab, r(cnt, tostring(cnt), i(nil, e)))
-        table.insert(tab, t ' = ')
-        table.insert(tab, t(e))
-        cnt = cnt + 1
+        local type_count = 0
+        local default_count = 0
+        for type_split in string.gmatch(e, ' ?([^:]*) ?') do
+          if type_count == 0 then
+            for default_split in string.gmatch(type_split, ' ?([^=]*) ?') do
+              if default_count == 0 then
+                table.insert(tab, t { '', '\tself.' })
+                -- use a restore-node to be able to keep the possibly changed attribute name
+                -- (otherwise this function would always restore the default, even if the user
+                -- changed the name)
+                table.insert(tab, r(cnt, tostring(cnt), i(nil, default_split)))
+                table.insert(tab, t ' = ')
+                table.insert(tab, t(default_split))
+                cnt = cnt + 1
+              end
+              default_count = default_count + 1
+            end
+          end
+          type_count = type_count + 1
+        end
       end
     end
   end
