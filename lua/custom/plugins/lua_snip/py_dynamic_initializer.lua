@@ -44,6 +44,7 @@ local function to_init_assign(args)
               if type_count == 0 then
                 arg_string = default_split
               elseif type_count == 2 then
+                -- I don't know why type_count == 2 matches with second element of split but well wasted too much time
                 type_string = default_split
               end
             end
