@@ -34,26 +34,35 @@ local function to_init_assign(args)
     local cnt = 1
     for e in string.gmatch(a, ' ?([^,]*) ?') do
       if #e > 0 then
+        local arg_string = ''
+        local type_string = ''
         local type_count = 0
-        local default_count = 0
         for type_split in string.gmatch(e, ' ?([^:]*) ?') do
-          if type_count == 0 then
-            for default_split in string.gmatch(type_split, ' ?([^=]*) ?') do
-              if default_count == 0 then
-                table.insert(tab, t { '', '\tself.' })
-                -- use a restore-node to be able to keep the possibly changed attribute name
-                -- (otherwise this function would always restore the default, even if the user
-                -- changed the name)
-                table.insert(tab, r(cnt, tostring(cnt), i(nil, default_split)))
-                table.insert(tab, t ' = ')
-                table.insert(tab, t(default_split))
-                cnt = cnt + 1
+          local default_count = 0
+          for default_split in string.gmatch(type_split, ' ?([^=]*) ?') do
+            if default_count == 0 then
+              if type_count == 0 then
+                arg_string = default_split
+              elseif type_count == 2 then
+                type_string = default_split
               end
-              default_count = default_count + 1
             end
+            default_count = default_count + 1
           end
           type_count = type_count + 1
         end
+        table.insert(tab, t { '', '\tself.' })
+        -- use a restore-node to be able to keep the possibly changed attribute name
+        -- (otherwise this function would always restore the default, even if the user
+        -- changed the name)
+        table.insert(tab, r(cnt, tostring(cnt), i(nil, arg_string)))
+        if #type_string > 0 then
+          table.insert(tab, t ' : ')
+          table.insert(tab, t(type_string))
+        end
+        table.insert(tab, t ' = ')
+        table.insert(tab, t(arg_string))
+        cnt = cnt + 1
       end
     end
   end
