@@ -704,6 +704,28 @@ require('lazy').setup({
             },
           },
         },
+        texlab = {
+          bibtexFormatter = 'texlab',
+          build = {
+            args = { '-pdf', '-interaction=nonstopmode', '-synctex=1', '%f' },
+            executable = 'latexmk',
+            forwardSearchAfter = false,
+            onSave = false,
+          },
+          chktex = {
+            onEdit = false,
+            onOpenAndSave = false,
+          },
+          diagnosticsDelay = 300,
+          formatterLineLength = 80,
+          forwardSearch = {
+            args = {},
+          },
+          latexFormatter = 'latexindent',
+          latexindent = {
+            modifyLineBreaks = false,
+          },
+        },
       }
 
       -- Ensure the servers and tools above are installed
@@ -996,6 +1018,15 @@ require('lazy').setup({
   },
   {
     'AndrewRadev/linediff.vim',
+  },
+  {
+    'lervag/vimtex',
+    lazy = false, -- we don't want to lazy load VimTeX
+    -- tag = "v2.15", -- uncomment to pin to a specific release
+    init = function()
+      -- VimTeX configuration goes here, e.g.
+      vim.g.vimtex_view_method = 'zathura'
+    end,
   },
 
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
