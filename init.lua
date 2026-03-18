@@ -998,6 +998,12 @@ require('lazy').setup({
     'AndrewRadev/linediff.vim',
   },
   {
+    'GCBallesteros/jupytext.nvim',
+    config = true,
+    -- Depending on your nvim distro or config you may need to make the loading not lazy
+    -- lazy=false,
+  },
+  {
     'Vigemus/iron.nvim',
     config = function()
       local iron = require 'iron.core'
