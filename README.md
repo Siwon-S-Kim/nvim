@@ -1,6 +1,15 @@
 # My personal neovim config
 
 This config is started from [neovim kickstart](https://github.com/nvim-lua/kickstart.nvim)
+
+## Notes
+
+### On installation
+
+- `nvm` for `npm` should be installed
+- `tree-sitter-cli` should be installed, which should be installed by rust or npm
+- If GLIBC version is a problem try to degrade nvim version
+
 # kickstart.nvim
 
 ## Introduction
