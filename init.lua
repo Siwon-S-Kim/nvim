@@ -726,6 +726,11 @@ require('lazy').setup({
             modifyLineBreaks = false,
           },
         },
+        ltex_plus = {
+          ltex = {
+            language = 'en-GB',
+          },
+        },
       }
 
       -- Ensure the servers and tools above are installed
