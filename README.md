@@ -1,6 +1,25 @@
 # My personal neovim config
 
 This config is started from [neovim kickstart](https://github.com/nvim-lua/kickstart.nvim)
+
+## Notes
+
+### On installation
+
+- `nvm` for `npm` should be installed
+- `tree-sitter-cli` should be installed, which should be installed by rust or npm
+- If GLIBC version is a problem try to degrade nvim version
+
+## Install by building
+```sh
+#!/bin/bash
+apt-get install ninja-build gettext cmake culr build-essential git
+git clone https://github.com/neovim/neovim
+cd neovim/
+git checkout stable
+make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$HOME/neovim"
+make install
+```
 # kickstart.nvim
 
 ## Introduction
