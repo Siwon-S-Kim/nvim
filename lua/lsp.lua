@@ -221,33 +221,6 @@ return {
           },
         },
       },
-      texlab = {
-        bibtexFormatter = 'texlab',
-        build = {
-          args = { '-pdf', '-interaction=nonstopmode', '-synctex=1', '%f' },
-          executable = 'latexmk',
-          forwardSearchAfter = false,
-          onSave = false,
-        },
-        chktex = {
-          onEdit = false,
-          onOpenAndSave = false,
-        },
-        diagnosticsDelay = 300,
-        formatterLineLength = 80,
-        forwardSearch = {
-          args = {},
-        },
-        latexFormatter = 'latexindent',
-        latexindent = {
-          modifyLineBreaks = false,
-        },
-      },
-      ltex_plus = {
-        ltex = {
-          language = 'en-GB',
-        },
-      },
     }
 
     -- Ensure the servers and tools above are installed
