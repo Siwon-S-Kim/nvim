@@ -219,7 +219,8 @@ vim.keymap.set('n', '<leader>t<CR>', function ()
   local buf = vim.api.nvim_create_buf(true,false)
   vim.api.nvim_open_win(buf, true, {
     split = 'below',
-    win = 0
+    win = 0,
+    height = 15,
   })
   vim.cmd('term')
   vim.cmd('startinsert')
