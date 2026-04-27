@@ -716,6 +716,12 @@ require('lazy').setup({
           dotfiles = false,
           git_ignored = false,
         },
+        actions = {
+          open_file = {
+            resize_window = false,
+          }
+
+        }
       }
     end,
   },
