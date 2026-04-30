@@ -215,18 +215,18 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
 -- Enter new terminal with insert mode
-vim.keymap.set('n', '<leader>t<CR>', function ()
-  local buf = vim.api.nvim_create_buf(true,false)
+vim.keymap.set('n', '<leader>t<CR>', function()
+  local buf = vim.api.nvim_create_buf(true, false)
   vim.api.nvim_open_win(buf, true, {
     split = 'below',
     win = 0,
     height = 15,
   })
-  vim.cmd('term')
-  vim.cmd('startinsert')
-  end
-  -- '<cmd>term<CR>i'
-    , { desc = 'Open terminal below and enter insert mode' })
+  vim.cmd 'term'
+  vim.cmd 'startinsert'
+end, { desc = 'Open terminal below and enter insert mode' })
+-- -- previous setting
+-- vim.keymap.set( 'n', '<leader>t<CR>', '<cmd>term<CR>i', { desc = 'Open terminal below and enter insert mode' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
