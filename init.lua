@@ -732,6 +732,18 @@ require('lazy').setup({
     end,
   },
   {
+    'chomosuke/typst-preview.nvim',
+    -- lazy = false, -- or ft = 'typst'
+    ft = 'typst',
+    version = '1.*',
+    opts = {
+      open_cmd = 'firefox %s -P typst-preview --class typst-preview',
+      dependencies_bin = {
+        tinymist = 'tinymist',
+      },
+    }, -- lazy.nvim will implicitly calls `setup {}`
+  },
+  {
     'GCBallesteros/jupytext.nvim',
     config = true,
     -- Depending on your nvim distro or config you may need to make the loading not lazy

@@ -248,6 +248,7 @@ return {
           language = 'en-GB',
         },
       },
+      tinymist = {},
     }
 
     -- Ensure the servers and tools above are installed
