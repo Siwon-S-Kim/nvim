@@ -727,6 +727,16 @@ require('lazy').setup({
         },
       }
       require('nvim-tree').setup(nvim_tree_config_table)
+
+      local function toggle_sort()
+        local current_sorter = nvim_tree_config_table.sort.sorter
+        local new_sorter = current_sorter == "name" and "modification_time" or "name"
+        nvim_tree_config_table.sort.sorter = new_sorter
+        require('nvim-tree').setup(nvim_tree_config_table)
+        print("nvim tree sorted by:" .. nvim_tree_config_table.sort.sorter)
+        require('nvim-tree.api').tree.open()
+      end
+      vim.keymap.set('n','<leader>ts',toggle_sort, {desc = "Toggle file sorting modification time/name"})
     end,
   },
   {
