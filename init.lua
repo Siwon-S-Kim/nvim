@@ -710,7 +710,7 @@ require('lazy').setup({
       'nvim-tree/nvim-web-devicons',
     },
     config = function()
-      require('nvim-tree').setup {
+      local nvim_tree_config_table = {
         view = { side = 'right' },
         filters = {
           dotfiles = false,
@@ -726,6 +726,7 @@ require('lazy').setup({
           }
         },
       }
+      require('nvim-tree').setup(nvim_tree_config_table)
     end,
   },
   {
