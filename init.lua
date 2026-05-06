@@ -215,18 +215,16 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
 -- Enter new terminal with insert mode
-vim.keymap.set('n', '<leader>t<CR>', function ()
-  local buf = vim.api.nvim_create_buf(true,false)
+vim.keymap.set('n', '<leader>t<CR>', function()
+  local buf = vim.api.nvim_create_buf(true, false)
   vim.api.nvim_open_win(buf, true, {
     split = 'below',
     win = -1,
     height = 15,
   })
-  vim.cmd('term')
-  vim.cmd('startinsert')
-  end
-  -- '<cmd>term<CR>i'
-    , { desc = 'Open terminal below and enter insert mode' })
+  vim.cmd 'term'
+  vim.cmd 'startinsert'
+end, { desc = 'Open terminal below and enter insert mode' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -718,25 +716,25 @@ require('lazy').setup({
         },
         sort = {
           -- sorter = 'name'
-          sorter = 'modification_time'
+          sorter = 'modification_time',
         },
         actions = {
           open_file = {
             resize_window = false,
-          }
+          },
         },
       }
       require('nvim-tree').setup(nvim_tree_config_table)
 
       local function toggle_sort()
         local current_sorter = nvim_tree_config_table.sort.sorter
-        local new_sorter = current_sorter == "name" and "modification_time" or "name"
+        local new_sorter = current_sorter == 'name' and 'modification_time' or 'name'
         nvim_tree_config_table.sort.sorter = new_sorter
         require('nvim-tree').setup(nvim_tree_config_table)
-        print("nvim tree sorted by:" .. nvim_tree_config_table.sort.sorter)
+        print('nvim tree sorted by:' .. nvim_tree_config_table.sort.sorter)
         require('nvim-tree.api').tree.open()
       end
-      vim.keymap.set('n','<leader>ts',toggle_sort, {desc = "Toggle file sorting modification time/name"})
+      vim.keymap.set('n', '<leader>ts', toggle_sort, { desc = 'Toggle file sorting modification time/name' })
     end,
   },
   {
