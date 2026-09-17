@@ -718,12 +718,12 @@ require('lazy').setup({
         },
         sort = {
           -- sorter = 'name'
-          sorter = 'modification_time'
+          sorter = 'modification_time',
         },
         actions = {
           open_file = {
             resize_window = false,
-          }
+          },
         },
       }
       require('nvim-tree').setup(nvim_tree_config_table)
