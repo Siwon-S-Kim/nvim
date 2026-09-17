@@ -175,6 +175,8 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
+vim.o.autoread = true
+
 -- open close brackets
 -- vim.keymap.set('i', '()', 'parenthese<C-y>', { remap = true })
 -- vim.keymap.set('i', '()', 'parenthese<cmd>lua require("luasnip").expand()<cr>', { remap = true })
